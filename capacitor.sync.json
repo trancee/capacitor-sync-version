@@ -1,0 +1,11 @@
+{
+    "plist": {
+        "CFBundleShortVersionString": "$(MARKETING_VERSION)",
+        "CFBundleVersion": "$(CURRENT_PROJECT_VERSION)"
+    },
+
+    "pbxproj": {
+        "MARKETING_VERSION": "VERSION",
+        "CURRENT_PROJECT_VERSION": "AUTOINCREMENT"
+    }
+}

@@ -6,6 +6,7 @@ import readProps from "properties-reader";
 import { valid } from "semver";
 
 import { log, readPackage } from "./utils";
+import { Config } from "./config";
 
 const appPropertiesPath = resolve(process.cwd(), "android/app/app.properties");
 
@@ -14,7 +15,7 @@ const generateVersionCode = (version: string) => {
   return (parseInt(major) * 1000000) + (parseInt(minor) * 1000) + parseInt(patch);
 };
 
-export const syncAndroid = async () => {
+export const syncAndroid = async (config?: Config) => {
   const { version } = readPackage(resolve(process.cwd(), "package.json"));
 
   if (!valid(version)) {
@@ -35,5 +36,5 @@ export const syncAndroid = async () => {
     process.exit();
   }
 
-  log(chalk`{green ✔} Sync version ${version} for android.`);
+  log(chalk`{green ✔} Sync version ${version} for Android.`);
 };

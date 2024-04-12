@@ -8,6 +8,7 @@ import { Command } from "commander";
 import { log, readPackage } from "./utils";
 import { syncAndroid } from "./sync-android";
 import { syncIos } from "./sync-ios";
+import { loadConfig, Config } from "./config";
 
 // define supported syncing platform
 enum Platform {
@@ -16,7 +17,7 @@ enum Platform {
 }
 
 // mount all syncing methods
-const sync: Record<Platform, () => Promise<void>> = {
+const sync: Record<Platform, (config?: Config) => Promise<void>> = {
   android: syncAndroid,
   ios: syncIos
 };
@@ -35,8 +36,8 @@ const args = program.args;
 
 let platforms = [...args];
 
-if (!platforms.length){
-  if(process.env.CAPACITOR_PLATFORM_NAME) {
+if (!platforms.length) {
+  if (process.env.CAPACITOR_PLATFORM_NAME) {
     platforms.push(process.env.CAPACITOR_PLATFORM_NAME);
   } else {
     console.log(chalk`  {red Missing platform name. Nothing to do.}`);
@@ -56,9 +57,11 @@ if (invalidPlatform) {
 }
 
 (async () => {
+  let config;
+  try { config = await loadConfig(); } catch { }
   for (const [i, platform] of (platforms as Platform[]).entries()) {
     !i && console.log(); // print blank line before the 1st platform
-    await sync[platform]();
+    await sync[platform](config);
   }
 })();
 

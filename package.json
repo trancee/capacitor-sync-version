@@ -1,6 +1,6 @@
 {
   "name": "capacitor-sync-version",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "Syncing version from package.json to target platform in the capacitor projects.",
   "bin": {
     "capacitor-sync-version": "dist/index.js"
@@ -18,21 +18,21 @@
   },
   "dependencies": {
     "await-to-js": "^3.0.0",
-    "chalk": "^4.1.1",
-    "commander": "^8.0.0",
+    "chalk": "^4.1.2",
+    "commander": "^8.3.0",
     "load-json-file": "^6.2.0",
-    "plist": "^3.0.4",
-    "properties-reader": "^2.2.0",
-    "semver": "^7.3.5"
+    "plist": "^3.1.0",
+    "properties-reader": "^2.3.0",
+    "semver": "^7.6.0"
   },
   "devDependencies": {
-    "@types/node": "14",
-    "@types/plist": "^3.0.2",
-    "@types/properties-reader": "^2.1.1",
-    "@types/semver": "^7.3.7",
+    "@types/node": "^14.18.63",
+    "@types/plist": "^3.0.5",
+    "@types/properties-reader": "^2.1.3",
+    "@types/semver": "^7.5.8",
     "rimraf": "^3.0.2",
-    "ts-node": "^10.0.0",
-    "typescript": "^4.3.4"
+    "ts-node": "^10.9.2",
+    "typescript": "^4.9.5"
   },
   "repository": {
     "type": "git",
