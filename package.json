@@ -1,5 +1,5 @@
 {
-  "name": "capacitor-sync-version",
+  "name": "@capacitor-trancee/sync-version",
   "version": "1.1.0",
   "description": "Syncing version from package.json to target platform in the capacitor projects.",
   "bin": {
@@ -36,7 +36,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arzyu/capacitor-sync-version"
+    "url": "git+https://github.com/trancee/capacitor-sync-version.git"
   },
   "license": "MIT"
 }
