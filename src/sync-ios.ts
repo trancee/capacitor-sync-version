@@ -74,8 +74,8 @@ export const syncIos = async (config?: Config) => {
       return ["", ""];
     }
 
-    content.replaceAll(...searchReplace("MARKETING_VERSION", config?.pbxproj?.MARKETING_VERSION));
-    content.replaceAll(...searchReplace("CURRENT_PROJECT_VERSION", config?.pbxproj?.CURRENT_PROJECT_VERSION));
+    content = content.replaceAll(...searchReplace("MARKETING_VERSION", config?.pbxproj?.MARKETING_VERSION));
+    content = content.replaceAll(...searchReplace("CURRENT_PROJECT_VERSION", config?.pbxproj?.CURRENT_PROJECT_VERSION));
 
     writeFileSync(projectPbxProjPath, content, { encoding: "utf8" });
   } catch (e) {
